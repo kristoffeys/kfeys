@@ -1,13 +1,19 @@
 <template>
-    <div id="app">
-        <header id="header" class="alt main-navigation">
-            <h1><a href="index.html">Alpha</a> by HTML5 UP</h1>
-            <nav id="nav">
-                <ul>
-                    <li>
+    <div id="app" class="container mx-auto">
+        <header id="header" class="clearfix">
+            <figure id="logo" class="h-16 py-2 float-left flex">
+                <img src="./images/devface.svg" class="max-h-full flex-1" />
+                <figcaption class="flex-1 py-2 px-4">
+                    Kristof<br>
+                    Feys
+                </figcaption>
+            </figure>
+            <nav id="nav" class="float-right h-16 py-2">
+                <ul class="flex list-reset">
+                    <li class="flex-1 px-2 py-4 text-slate">
                         <router-link v-bind:to="'/'">overview</router-link>
                     </li>
-                    <li v-for="item in navigation">
+                    <li v-for="item in navigation" class="flex-1 px-2 py-4">
                         <router-link v-bind:to="item.slug">{{ item.title }}</router-link>
                     </li>
                 </ul>

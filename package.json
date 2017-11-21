@@ -16,12 +16,13 @@
         "vue-router": "^3.0.1"
     },
     "devDependencies": {
-        "bootstrap-sass": "^3.3.7",
+        "autoprefixer": "^7.1.6",
         "cross-env": "^5.1",
         "css-loader": "^0.28.7",
         "jquery": "^3.2",
         "laravel-mix": "^1.0",
         "lodash": "^4.17.4",
+        "tailwindcss": "^0.2.2",
         "vue-loader": "^13.5.0",
         "vue-style-loader": "^3.0.3"
     }

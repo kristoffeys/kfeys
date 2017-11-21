@@ -5,13 +5,15 @@
             <p>A category.</p>
         </header>
 
-        <ul>
-            <li v-for="post in category.posts">
-                {{ post.image }}
+        <article v-for="post in category.posts" class="flex flex-wrap py-8">
+            <figure class="w-1/3">
+                <img :src="'/'+post.image" :alt="post.title" class="max-h-full h-auto w-full" />
+            </figure>
+            <summary class="w-2/3 pl-4">
                 <h2><router-link :to="{ name: 'post', params: { slug: post.slug }}">{{ post.title }}</router-link></h2>
                 <p> {{post.excerpt }}</p>
-            </li>
-        </ul>
+            </summary>
+        </article>
     </div>
 </template>
 

@@ -1,4 +1,6 @@
-let mix = require('laravel-mix');
+const { mix } = require('laravel-mix');
+const autoprefixer = require('autoprefixer');
+const tailwindcss = require('tailwindcss');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,4 +14,11 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/main.js', 'public/js')
-   .sass('resources/assets/scss/global.scss', 'public/css');
+   .postCss(
+       'resources/assets/scss/global.css',
+       'public/css',
+       [
+           tailwindcss('tailwind.js'),
+           autoprefixer
+       ]
+   );

@@ -18,23 +18,23 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/posts', function () {
-    return App\Post::where('status', '=', 'PUBLISHED')->get();
+    return App\Models\Post::where('status', '=', 'PUBLISHED')->get();
 });
 
 Route::get('/posts/{slug}', function($slug) {
-    return App\Post::whereRaw('slug = ? AND status = "PUBLISHED"', [$slug])->firstOrFail();
+    return App\Models\Post::whereRaw('slug = ? AND status = "PUBLISHED"', [$slug])->firstOrFail();
 });
 
 Route::get('/pages/{slug}', function($slug) {
-    return App\Page::whereRaw('slug = ? AND status = "ACTIVE"', [$slug])->firstOrFail();
+    return App\Models\Page::whereRaw('slug = ? AND status = "ACTIVE"', [$slug])->firstOrFail();
 });
 
 Route::get('/categories/{slug}', function($slug) {
-    return App\Category::whereRaw('slug = ?', [$slug])->with('posts')->firstOrFail();
+    return App\Models\Category::whereRaw('slug = ?', [$slug])->with('posts')->firstOrFail();
 });
 
 Route::get('/navigation', function() {
-    $pages = collect(App\Page::whereRaw('status = "ACTIVE"')->get(['title',DB::raw("CONCAT('/',slug) AS slug")]));
-    $categories = collect(App\Category::select(DB::raw("CONCAT('/category/', slug) AS slug"),DB::raw('name AS title'))->get());
+    $pages = collect(App\Models\Page::whereRaw('status = "ACTIVE"')->get(['title',DB::raw("CONCAT('/',slug) AS slug")]));
+    $categories = collect(App\Models\Category::select(DB::raw("CONCAT('/category/', slug) AS slug"),DB::raw('name AS title'))->get());
     return $pages->merge($categories);
 });
