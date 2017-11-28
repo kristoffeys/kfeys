@@ -14480,6 +14480,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -14499,6 +14505,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     methods: {
+        onNavigationPillClick: function onNavigationPillClick() {
+            /*
+            let el = document.getElementById('dropdown');
+            if (el.style.display === 'block') {
+                el.style.display = 'none';
+            } else {
+                el.style.display = 'block';
+            }
+            */
+        },
         fetchNavigation: function fetchNavigation() {
             Object(__WEBPACK_IMPORTED_MODULE_0__pages_repository_js__["a" /* fetchNavigation */])().then(this.onFetchComplete).catch(this.onFetchFailed);
         },
@@ -15421,46 +15437,90 @@ var render = function() {
     "div",
     { staticClass: "container mx-auto", attrs: { id: "app" } },
     [
-      _c("header", { staticClass: "clearfix", attrs: { id: "header" } }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "nav",
-          { staticClass: "float-right h-16 py-2", attrs: { id: "nav" } },
-          [
-            _c(
-              "ul",
-              { staticClass: "flex list-reset" },
-              [
+      _c(
+        "header",
+        { staticClass: "clearfix px-2 sm:px-0", attrs: { id: "header" } },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "nav",
+            {
+              staticClass: "md:float-right md:h-16 py-2",
+              attrs: { id: "nav" }
+            },
+            [
+              _c("div", { staticClass: "block md:hidden float-right py-2" }, [
                 _c(
-                  "li",
-                  { staticClass: "flex-1 px-2 py-4 text-slate" },
+                  "button",
+                  {
+                    staticClass:
+                      "flex items-center px-3 py-2 border text-teal-lighter border-teal-light",
+                    on: { click: _vm.onNavigationPillClick }
+                  },
                   [
-                    _c("router-link", { attrs: { to: "/" } }, [
-                      _vm._v("overview")
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm._l(_vm.navigation, function(item) {
-                  return _c(
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-3 w-3",
+                        attrs: {
+                          viewBox: "0 0 20 20",
+                          xmlns: "http://www.w3.org/2000/svg"
+                        }
+                      },
+                      [
+                        _c("title", [_vm._v("Menu")]),
+                        _c("path", {
+                          attrs: {
+                            d: "M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "clearfix" }),
+              _vm._v(" "),
+              _c(
+                "ul",
+                {
+                  staticClass:
+                    "w-full list-reset md:flex md:w-auto text-center md:text-left md:block hidden",
+                  attrs: { id: "dropdown" }
+                },
+                [
+                  _c(
                     "li",
-                    { staticClass: "flex-1 px-2 py-4" },
+                    { staticClass: "block md:flex-1 px-2 py-4 text-slate" },
                     [
-                      _c("router-link", { attrs: { to: item.slug } }, [
-                        _vm._v(_vm._s(item.title))
+                      _c("router-link", { attrs: { to: "/" } }, [
+                        _vm._v("overview")
                       ])
                     ],
                     1
-                  )
-                })
-              ],
-              2
-            )
-          ]
-        )
-      ]),
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.navigation, function(item) {
+                    return _c(
+                      "li",
+                      { staticClass: "block md:flex-1 px-2 py-4" },
+                      [
+                        _c("router-link", { attrs: { to: item.slug } }, [
+                          _vm._v(_vm._s(item.title))
+                        ])
+                      ],
+                      1
+                    )
+                  })
+                ],
+                2
+              )
+            ]
+          )
+        ]
+      ),
       _vm._v(" "),
       _c(
         "transition",

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use TCG\Voyager\Models\Page;
+use App\Models\Page;
 
 class CreatePagesTable extends Migration
 {
@@ -16,7 +16,6 @@ class CreatePagesTable extends Migration
         // Create table for storing roles
         Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('author_id');
             $table->string('title');
             $table->text('excerpt')->nullable();
             $table->text('body')->nullable();

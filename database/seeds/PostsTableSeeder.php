@@ -14,7 +14,6 @@ class PostsTableSeeder extends Seeder
         if (!$post->exists) {
             $post->fill([
                 'title'            => 'Lorem Ipsum Post',
-                'author_id'        => 0,
                 'seo_title'        => null,
                 'excerpt'          => 'This is the excerpt for the Lorem Ipsum Post',
                 'body'             => '<p>This is the body of the lorem ipsum post</p>',

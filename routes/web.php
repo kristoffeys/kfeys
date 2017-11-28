@@ -11,7 +11,9 @@
 |
 */
 Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
+    Auth::routes();
+
+    Route::get('/', 'HomeController@index');
 });
 
 Route::get('/{any}', function () {

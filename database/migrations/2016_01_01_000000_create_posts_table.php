@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use App\Models\Post;
 
 class CreatePostsTable extends Migration
 {
@@ -15,7 +16,6 @@ class CreatePostsTable extends Migration
         // Create table for storing roles
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('author_id');
             $table->integer('category_id')->nullable();
             $table->string('title');
             $table->string('seo_title')->nullable();
@@ -25,7 +25,7 @@ class CreatePostsTable extends Migration
             $table->string('slug')->unique();
             $table->text('meta_description');
             $table->text('meta_keywords');
-            $table->enum('status', ['PUBLISHED', 'DRAFT', 'PENDING'])->default('DRAFT');
+            $table->enum('status', Post::$statuses)->default(Post::STATUS_DRAFT);
             $table->boolean('featured')->default(0);
             $table->timestamps();
 
