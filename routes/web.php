@@ -16,6 +16,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'HomeController@index');
 });
 
+Route::feeds();
+
 Route::get('/{any}', function () {
     return view('app');
 })->where('any', '.*');
