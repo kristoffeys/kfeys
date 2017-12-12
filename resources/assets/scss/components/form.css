@@ -1,0 +1,14 @@
+.input {
+    @apply .w-full .border .rounded .py-3 .px-4 .block .appearance-none;
+}
+.input-grey {
+    @apply .border-grey-lighter .text-grey-darker .bg-grey-lighter;
+
+    &:focus {
+         @apply .border-green;
+     }
+}
+
+.label {
+    @apply .block .uppercase .tracking-wide .text-xs .font-bold;
+}

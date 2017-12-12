@@ -502,7 +502,6 @@ button,
 [role=button] {
 	cursor: pointer;
 }
-
 /**
  * Here you would add any of your custom component classes; stuff that you'd
  * want loaded *before* the utilities so that the utilities could still
@@ -514,7 +513,37 @@ button,
  * .form-input { ... }
  *
  */
+.input {
+	width: 100%;
+	border-width: 1px;
+	border-radius: .25rem;
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	display: block;
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
+}
 
+.input-grey {
+	border-color: #f3f7f9;
+	color: #596a73;
+	background-color: #f3f7f9;
+
+	&:focus {
+		border-color: #38c172;
+	}
+}
+
+.label {
+	display: block;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	font-size: .75rem;
+	font-weight: 700;
+}
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
@@ -3317,7 +3346,6 @@ button,
 .cursor-not-allowed {
 	cursor: not-allowed;
 }
-
 /**
  * Here you would add any custom utilities you need that don't come out of the
  * box with Tailwind.
@@ -3328,7 +3356,6 @@ button,
  * .skew-45 { ... }
  *
  */
-
 @media (min-width: 576px) {
 	.sm\:list-reset {
 		list-style: none;

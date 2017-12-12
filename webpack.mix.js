@@ -1,6 +1,7 @@
 const { mix } = require('laravel-mix');
 const autoprefixer = require('autoprefixer');
 const tailwindcss = require('tailwindcss');
+const atImport = require('postcss-import');
 
 /*
  |--------------------------------------------------------------------------
@@ -18,7 +19,8 @@ mix.js('resources/assets/main.js', 'public/js')
        'resources/assets/scss/global.css',
        'public/css',
        [
-           tailwindcss('tailwind.js'),
-           autoprefixer
+           atImport(),
+           autoprefixer(),
+           tailwindcss('tailwind.js')
        ]
    );

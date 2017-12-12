@@ -10,8 +10,8 @@
                 {{ csrf_field() }}
 
                 <div class="mb-4{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <label for="email" class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">E-Mail Address</label>
-                    <input id="email" type="email" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 focus:border-green" name="email" value="{{ old('email') }}" required autofocus>
+                    <label for="email" class="label text-grey-darker mb-2">E-Mail Address</label>
+                    <input id="email" type="email" class="input input-grey" name="email" value="{{ old('email') }}" required autofocus>
 
                     @if ($errors->has('email'))
                         <span class="help-block">
@@ -21,8 +21,8 @@
                 </div>
 
                 <div class="mb-4{{ $errors->has('password') ? ' has-error' : '' }}">
-                    <label for="password" class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">Password</label>
-                    <input id="password" type="password" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 focus:border-green" name="password" required>
+                    <label for="password" class="label text-grey-darker mb-2">Password</label>
+                    <input id="password" type="password" class="input input-grey" name="password" required>
 
                     @if ($errors->has('password'))
                         <span class="help-block">
