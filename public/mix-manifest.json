@@ -1,4 +1,6 @@
 {
-    "/js/main.js": "/js/main.js",
-    "/css/global.css": "/css/global.css"
+    "/js/main.js": "/js/main.js?id=349ab4f87c4b32b059dc",
+    "/css/backend.css": "/css/backend.css?id=5fd59b7081eedbae5132",
+    "/css/global.css": "/css/global.css?id=8bb26ae1dc23f3c2b194",
+    "/js/backend.js": "/js/backend.js?id=6ef410ec6f363cf155d0"
 }

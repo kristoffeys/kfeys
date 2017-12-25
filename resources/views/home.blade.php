@@ -1,5 +1,5 @@
-@extends('layouts.backend-nav')
+@extends('layouts.backend')
 
-@section('page')
+@section('content')
     Hello world
 @endsection

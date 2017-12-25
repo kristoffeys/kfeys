@@ -11,7 +11,11 @@
 |
 */
 
+Route::get('/', function () {
+    return redirect('/admin/overview');
+});
+
 Route::get('/overview', 'OverviewController@index');
-Route::Resource('/posts', 'PostController');
-Route::Resource('/pages', 'PageController');
-Route::Resource('/categories', 'CategoryController');
+Route::resource('/posts', 'PostController');
+Route::resource('/pages', 'PageController');
+Route::resource('/categories', 'CategoryController');

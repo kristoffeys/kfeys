@@ -14,13 +14,15 @@ const atImport = require('postcss-import');
  |
  */
 
-mix.js('resources/assets/main.js', 'public/js')
-   .postCss(
-       'resources/assets/scss/global.css',
-       'public/css',
-       [
-           atImport(),
-           autoprefixer(),
-           tailwindcss('tailwind.js')
-       ]
-   );
+ mix.js('resources/assets/main.js', 'public/js')
+     .js('resources/assets/admin/backend.js', 'public/js')
+     .options({
+         postCss: [
+             atImport(),
+             autoprefixer(),
+             tailwindcss('tailwind.js')
+         ]
+     })
+     .postCss('resources/assets/scss/backend.css', 'public/css')
+     .postCss('resources/assets/scss/global.css', 'public/css')
+     .version();

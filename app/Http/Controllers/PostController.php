@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -16,13 +17,22 @@ class PostController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('home');
+        $posts = Post::orderBy('created_at', 'desc')->get();
+
+        return view('admin.posts.index', compact('posts'));
+    }
+
+    public function create()
+    {
+        $post = new Post();
+
+        return view('admin.posts.create', compact('post'));
+    }
+
+    public function store()
+    {
+
     }
 }
