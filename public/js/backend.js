@@ -18340,6 +18340,8 @@ module.exports = g;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_simplemde__ = __webpack_require__("./node_modules/simplemde/src/js/simplemde.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_simplemde___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_simplemde__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_media_manager__ = __webpack_require__("./resources/assets/admin/components/media-manager.js");
+
 
 
 var editors = document.getElementsByClassName('markdown-editor');
@@ -18351,9 +18353,35 @@ if (editors.length) {
         autosave: {
             enabled: true,
             uniqueId: window.location
-        }
+        },
+        toolbar: ["bold", "italic", "heading", "|", "code", "quote", "unordered-list", "ordered-list", "table", "|", "link", "image", {
+            name: "file-manager",
+            action: function openFileManager(editor) {
+                // Currently only works in list-view
+                Object(__WEBPACK_IMPORTED_MODULE_1__components_media_manager__["a" /* default */])({ type: 'Images', prefix: '/laravel-filemanager' }, function (url, path) {
+                    var pos = editor.codemirror.getCursor();
+                    editor.codemirror.setSelection(pos, pos);
+                    editor.codemirror.replaceSelection('![](' + url + ')');
+                });
+            },
+            className: "fa fa-folder-open-o",
+            title: "File Manager"
+        }, "|", "preview", "side-by-side", "fullscreen", "|", "guide"]
     });
 }
+
+/***/ }),
+
+/***/ "./resources/assets/admin/components/media-manager.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = (function (options, cb) {
+    var route_prefix = options && options.prefix ? options.prefix : '/laravel-filemanager';
+
+    window.open(route_prefix + '?type=' + options.type || 'file', 'FileManager', 'width=900,height=600');
+    window.SetUrl = cb;
+});;
 
 /***/ }),
 
