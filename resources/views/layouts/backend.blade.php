@@ -25,10 +25,15 @@
         @endif
 
         <div class="bg-grey-lighter h-screen font-sans flex">
+            @if (Auth::check())
             <div class="bg-white shadow w-64 h-screen flex-none">
                 {{ Menu::admin() }}
             </div>
+            @endif
             <div class="flex-1 p-8">
+                <div class="fixed pin-t pin-r p-8">
+                    @include('flash::message')
+                </div>
                 @yield('content')
             </div>
         </div>

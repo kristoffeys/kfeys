@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -27,12 +29,36 @@ class PostController extends Controller
     public function create()
     {
         $post = new Post();
-
-        return view('admin.posts.create', compact('post'));
+        return view('admin.posts.form', compact('post'));
     }
 
-    public function store()
+    public function edit(Post $post)
     {
+        return view('admin.posts.form', compact('post'));
 
+    }
+
+    public function update(PostRequest $request, Post $post)
+    {
+        $post->updateAttributes($request->validated());
+        flash()->success('Post updated');
+
+        return back();
+    }
+
+    public function store(PostRequest $request)
+    {
+        $post = (new Post())->updateAttributes($request->validated());
+        flash()->success('Post saved');
+
+        return redirect()->action('PostsController@edit', $post->id);
+    }
+
+    public function destroy(Post $post)
+    {
+        $post->delete();
+        flash()->success('The post was deleted');
+
+        return back();
     }
 }

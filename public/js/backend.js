@@ -18370,6 +18370,16 @@ if (editors.length) {
     });
 }
 
+var flashes = document.getElementsByClassName('alert');
+
+if (flashes.length) {
+    setTimeout(function () {
+        for (var i = 0; i < flashes.length; i++) {
+            flashes[i].style.display = 'none';
+        }
+    }, 3000);
+}
+
 /***/ }),
 
 /***/ "./resources/assets/admin/components/media-manager.js":

@@ -2,13 +2,18 @@
 
 namespace App\Models;
 
+use Collective\Html\Eloquent\FormAccessible;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Parsedown;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
 
+
 class Post extends Model implements Feedable
 {
+    use FormAccessible;
+
     const STATUS_PUBLISHED = 'PUBLISHED';
     const STATUS_DRAFT = 'DRAFT';
     /**
@@ -28,6 +33,16 @@ class Post extends Model implements Feedable
         return $this->hasOne(Category::class);
     }
 
+    public function getBodyAttribute($original)
+    {
+        return (new Parsedown())->text($original);
+    }
+
+    public function getMarkdownAttribute()
+    {
+        return $this->getOriginal('body');
+    }
+
     public static function getFeedItems()
     {
         return static::published()
@@ -45,5 +60,18 @@ class Post extends Model implements Feedable
             ->updated($this->updated_at)
             ->link('/posts/'.$this->slug)
             ->author('Kristof Feys');
+    }
+
+    public function updateAttributes(array $attributes)
+    {
+        $this->title = $attributes['title'];
+        $this->body = $attributes['markdown'];
+        $this->excerpt = $attributes['excerpt'];
+        $this->meta_description = $attributes['meta_description'] ?? $attributes['excerpt'];
+        $this->meta_keywords = $attributes['meta_keywords'] ?? '';
+        $this->status = $attributes['status'];
+
+        $this->save();
+        return $this;
     }
 }

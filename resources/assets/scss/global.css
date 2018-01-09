@@ -12,6 +12,7 @@
  *
  */
 @import 'components/form.css';
+@import 'components/alert.css';
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your

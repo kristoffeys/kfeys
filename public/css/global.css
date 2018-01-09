@@ -545,6 +545,36 @@ button,
 	font-size: .75rem;
 	font-weight: 700;
 }
+
+.alert {
+	border-left-width: 4px;
+	padding: 1rem;
+	margin-bottom: 1rem;
+}
+
+.alert-info {
+	background-color: #eff8ff;
+	border-color: #3490dc;
+	color: #2779bd;
+}
+
+.alert-success {
+	background-color: #e3fcec;
+	border-color: #38c172;
+	color: #1f9d55;
+}
+
+.alert-warning {
+	background-color: #fff5eb;
+	border-color: #f6993f;
+	color: #de751f;
+}
+
+.alert-danger {
+	background-color: #fcebea;
+	border-color: #e3342f;
+	color: #cc1f1a;
+}
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.

@@ -2,8 +2,8 @@
     <div slot="content">
         <header>
             <h2>{{ post.title }}</h2>
-            <p>A blog.</p>
         </header>
+        <article v-html="post.body"></article>
     </div>
 </template>
 

@@ -3046,11 +3046,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { slot: "content" }, slot: "content" }, [
-    _c("header", [
-      _c("h2", [_vm._v(_vm._s(_vm.post.title))]),
-      _vm._v(" "),
-      _c("p", [_vm._v("A blog.")])
-    ])
+    _c("header", [_c("h2", [_vm._v(_vm._s(_vm.post.title))])]),
+    _vm._v(" "),
+    _c("article", { domProps: { innerHTML: _vm._s(_vm.post.body) } })
   ])
 }
 var staticRenderFns = []
