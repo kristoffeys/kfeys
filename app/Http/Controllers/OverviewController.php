@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Page;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class OverviewController extends Controller
@@ -23,6 +26,10 @@ class OverviewController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('admin/overview', [
+            'postCount' => Post::count(),
+            'pageCount' => Page::count(),
+            'categoryCount' => Category::count(),
+        ]);
     }
 }

@@ -18350,6 +18350,7 @@ if (editors.length) {
     new __WEBPACK_IMPORTED_MODULE_0_simplemde___default.a({
         element: editors[0],
         spellChecker: true,
+        autoDownloadFontAwesome: false,
         autosave: {
             enabled: true,
             uniqueId: window.location

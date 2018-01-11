@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -23,6 +24,8 @@ class PageController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $pages = Page::orderBy('created_at', 'desc')->get();
+
+        return view('admin.pages.index', compact('pages'));
     }
 }

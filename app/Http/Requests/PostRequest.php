@@ -16,7 +16,7 @@ class PostRequest extends FormRequest
             'title' => 'required',
             'excerpt' => 'required',
             'markdown' => 'required',
-            'status' => 'present',
+            'status' => 'required',
         ];
     }
 }

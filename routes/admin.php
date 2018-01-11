@@ -16,6 +16,6 @@ Route::get('/', function () {
 });
 
 Route::get('/overview', 'OverviewController@index');
-Route::resource('/posts', 'PostController');
+Route::resource('/posts', 'PostController', ['except' => ['show']]);
 Route::resource('/pages', 'PageController');
 Route::resource('/categories', 'CategoryController');

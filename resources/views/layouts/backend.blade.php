@@ -13,6 +13,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/global.css') }}" rel="stylesheet">
     <link href="{{ asset('css/backend.css') }}" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/95d1efc88a.js"></script>
 </head>
 <body>
     <div id="app">
@@ -24,9 +27,9 @@
         </div>
         @endif
 
-        <div class="bg-grey-lighter h-screen font-sans flex">
+        <div class="bg-grey-lighter min-h-screen h-full font-sans flex">
             @if (Auth::check())
-            <div class="bg-white shadow w-64 h-screen flex-none">
+            <div class="bg-white shadow w-64 min-h-screen h-full flex-none ">
                 {{ Menu::admin() }}
             </div>
             @endif

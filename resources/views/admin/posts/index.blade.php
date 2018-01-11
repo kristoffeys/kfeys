@@ -15,12 +15,12 @@
                     <a href="{{ action('PostController@edit', $post->id) }}">{{ $post->title }}</a>
                 </div>
                 <div class="text-xs text-grey font-medium">
-                    {{ $post->publish_date }}
-                </div></div>
+                    {{ $post->created_at->format('d/m/Y H:i') }}
+                </div>
+            </div>
             <div class="flex justify-between items-center">
-                <div class="text-sm my-1 px-2 border-r {{ $post->created_at ? 'text-green' : 'text-orange' }}">{{ $post->status }}</div>
-                {{-- @include('back._partials.deleteButton', ['url' => action('PostController@destroy', [$post->id])]) --}}
-                <div class="text-sm my-1 px-2"></div>
+                <div class="text-sm my-1 px-2 border-r {{ $post->status === \App\Models\Post::STATUS_PUBLISHED ? 'text-green' : 'text-orange' }}">{{ $post->status }}</div>
+                @include('admin.deleteButton', ['url' => action('PostController@destroy', [$post->id])])
             </div>
         </div>
         @endforeach

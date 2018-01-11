@@ -21,7 +21,11 @@ class Post extends Model implements Feedable
      *
      * @var array
      */
-    public static $statuses = [self::STATUS_PUBLISHED, self::STATUS_DRAFT];
+    public static $statuses = [self::STATUS_PUBLISHED,self::STATUS_DRAFT];
+    public static $statusdropdown = [
+        self::STATUS_DRAFT => 'Draft',
+        self::STATUS_PUBLISHED => 'Published',
+    ];
 
     public function scopePublished(Builder $query)
     {

@@ -7,6 +7,7 @@ if (editors.length) {
     new SimpleMDE({
         element: editors[0],
         spellChecker: true,
+        autoDownloadFontAwesome: false,
         autosave: {
             enabled: true,
             uniqueId: window.location,

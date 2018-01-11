@@ -22,9 +22,9 @@
             </h1>
         </div>
         @if($edit)
-            {!! Form::model($post, array('class' => 'p-8','route' => array('posts.update', $post->id), 'method' => 'put'))  !!}
+            {!! Form::model($post, ['class' => 'p-8','route' => ['posts.update', $post->id], 'method' => 'put'])  !!}
         @else
-            {!! Form::model($post, ['route' => 'posts.store']) !!}
+            {!! Form::model($post, ['class' => 'p-8','route' => 'posts.store']) !!}
 		@endif
 
         @if ($errors->any())
@@ -62,7 +62,7 @@
 
         <div class="mb-4{{ $errors->has('status') ? ' has-error' : '' }}">
             {!! Form::label('status', 'Status', ['class' => $labelClasses]) !!}
-            {!! Form::select('status', \App\Models\Post::$statuses, ['class' => $fieldClasses]) !!}
+            {!! Form::select('status', \App\Models\Post::$statusdropdown, $edit ? null : \App\Models\Post::STATUS_DRAFT, ['class' => $fieldClasses]) !!}
         </div>
 
         <button type="submit" class="bg-green hover:bg-green-darker text-white font-bold py-2 px-8 rounded">
