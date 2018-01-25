@@ -23,7 +23,6 @@ class PagesTableSeeder extends Seeder
 <p>Ballast spirits fluke topmast me quarterdeck schooner landlubber or just lubber gabion belaying pin. Pinnace stern galleon starboard warp carouser to go on account dance the hempen jig jolly boat measured fer yer chains. Man-of-war fire in the hole nipperkin handsomely doubloon barkadeer Brethren of the Coast gibbet driver squiffy.</p>',
                 'image'            => 'pages/page1.jpg',
                 'meta_description' => 'Yar Meta Description',
-                'meta_keywords'    => 'Keyword1, Keyword2',
                 'status'           => 'ACTIVE',
             ])->save();
         }

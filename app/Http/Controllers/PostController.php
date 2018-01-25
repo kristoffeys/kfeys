@@ -6,6 +6,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use App\Http\Requests\PostRequest;
+use App\Models\Category;
 
 class PostController extends Controller
 {
@@ -29,12 +30,14 @@ class PostController extends Controller
     public function create()
     {
         $post = new Post();
-        return view('admin.posts.form', compact('post'));
+        $categories = Category::pluck('name', 'id');
+        return view('admin.posts.form', compact('post'))->with(compact('categories'));
     }
 
     public function edit(Post $post)
     {
-        return view('admin.posts.form', compact('post'));
+        $categories = Category::pluck('name', 'id');
+        return view('admin.posts.form', compact('post'))->with(compact('categories'));
 
     }
 

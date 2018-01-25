@@ -55,9 +55,9 @@
             {!! Form::textarea('meta_description', null, ['class' => $fieldClasses]) !!}
         </div>
 
-        <div class="mb-4{{ $errors->has('meta_keywords') ? ' has-error' : '' }}">
-            {!! Form::label('meta_keywords', 'Meta Keywords', ['class' => $labelClasses]) !!}
-            {!! Form::text('meta_keywords', null, ['class' => $fieldClasses]) !!}
+        <div class="mb-4{{ $errors->has('categories') ? ' has-error' : '' }}">
+            {!! Form::label('categories', 'Categories', ['class' => $labelClasses]) !!}
+            {!! Form::select('categories[]', $categories, null, ['class' => $fieldClasses, 'multiple' => 'multiple']) !!}
         </div>
 
         <div class="mb-4{{ $errors->has('status') ? ' has-error' : '' }}">

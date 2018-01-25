@@ -32,9 +32,9 @@ class Post extends Model implements Feedable
         $query->where('status', self::STATUS_PUBLISHED);
     }
 
-    public function category()
+    public function categories()
     {
-        return $this->hasOne(Category::class);
+        return $this->belongsToMany(Category::class);
     }
 
     public function getBodyAttribute($original)

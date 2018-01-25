@@ -28,4 +28,16 @@ class PageController extends Controller
 
         return view('admin.pages.index', compact('pages'));
     }
+
+    public function create()
+    {
+        $page = new Page();
+        return view('admin.pages.form', compact('post'));
+    }
+
+    public function edit(Page $page)
+    {
+        return view('admin.pages.form', compact('page'));
+
+    }
 }

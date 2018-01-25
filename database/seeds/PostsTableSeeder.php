@@ -20,7 +20,7 @@ class PostsTableSeeder extends Seeder
                 'image'            => 'posts/post1.jpg',
                 'slug'             => 'lorem-ipsum-post',
                 'meta_description' => 'This is the meta description',
-                'meta_keywords'    => 'keyword1, keyword2, keyword3',
+                'categories'       => null,
                 'status'           => 'PUBLISHED',
                 'featured'         => 0,
             ])->save();
@@ -39,7 +39,7 @@ class PostsTableSeeder extends Seeder
                 'image'            => 'posts/post2.jpg',
                 'slug'             => 'my-sample-post',
                 'meta_description' => 'Meta Description for sample post',
-                'meta_keywords'    => 'keyword1, keyword2, keyword3',
+                'categories'       => null,
                 'status'           => 'PUBLISHED',
                 'featured'         => 0,
             ])->save();
@@ -56,7 +56,7 @@ class PostsTableSeeder extends Seeder
                 'image'            => 'posts/post3.jpg',
                 'slug'             => 'latest-post',
                 'meta_description' => 'This is the meta description',
-                'meta_keywords'    => 'keyword1, keyword2, keyword3',
+                'categories'       => null,
                 'status'           => 'PUBLISHED',
                 'featured'         => 0,
             ])->save();
@@ -75,7 +75,7 @@ class PostsTableSeeder extends Seeder
                 'image'            => 'posts/post4.jpg',
                 'slug'             => 'yarr-post',
                 'meta_description' => 'this be a meta descript',
-                'meta_keywords'    => 'keyword1, keyword2, keyword3',
+                'categories'       => null,
                 'status'           => 'PUBLISHED',
                 'featured'         => 0,
             ])->save();
